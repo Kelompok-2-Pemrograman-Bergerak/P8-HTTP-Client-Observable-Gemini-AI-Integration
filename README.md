@@ -55,16 +55,20 @@ Modul ini mendemonstrasikan penggunaan:
 ### 1️⃣ Install Dependencies
 ```bash
 npm install
+```
 
 ---
 
 ### 2️⃣ Jalankan Aplikasi
 ```bash
 ionic serve
+```
 
-Aplikasi akan berjalan di:
+---
+### Aplikasi akan berjalan di:
 ```arduino
 http://localhost:8100
+```
 
 ---
 
