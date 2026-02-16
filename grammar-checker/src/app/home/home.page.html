@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>Tanya Pak AI</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-list lines="none">
+
+    <!-- Loop Chat -->
+    <ion-item *ngFor="let msg of chatHistory">
+      <div [class]="msg.role === 'user' ? 'chat-user' : 'chat-ai'">
+        <ion-label class="ion-text-wrap">
+          <p>
+            <strong>
+              {{ msg.role === 'user' ? 'Saya' : 'Bot AI' }}
+            </strong>
+          </p>
+          {{ msg.text }}
+        </ion-label>
+      </div>
+    </ion-item>
+
+    <!-- Loading Indicator -->
+    <ion-item *ngIf="isLoading">
+      <ion-spinner name="dots"></ion-spinner>
+      <ion-label class="ion-margin-start">
+        Sedang mengetik...
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item lines="none">
+
+      <!-- Input User -->
+      <ion-input
+        placeholder="Tulis pertanyaan..."
+        [(ngModel)]="userInput">
+      </ion-input>
+
+      <!-- Tombol Kirim -->
+      <ion-button
+        slot="end"
+        (click)="kirimPesan()"
+        [disabled]="isLoading || !userInput">
+
+        <ion-icon name="send"></ion-icon>
+
+      </ion-button>
+
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

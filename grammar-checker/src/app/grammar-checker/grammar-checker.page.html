@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Live Grammar Checker</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-textarea
+    placeholder="Type your English sentence here..."
+    [formControl]="textControl"
+    auto-grow="true">
+  </ion-textarea>
+
+  <div *ngIf="isLoading" class="loading">
+    <ion-spinner name="dots"></ion-spinner>
+  </div>
+
+  <ion-card *ngIf="result">
+
+    <ion-card-header>
+      <ion-card-title
+        [color]="result.status === 'Correct' ? 'success' : 'danger'">
+        Status: {{ result.status }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Correction:</strong></p>
+      <p>{{ result.correction }}</p>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

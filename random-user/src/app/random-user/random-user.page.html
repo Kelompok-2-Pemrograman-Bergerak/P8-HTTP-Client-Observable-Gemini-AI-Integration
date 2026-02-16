@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Random User Generator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-button expand="block" (click)="generateUser()">
+    Generate User
+  </ion-button>
+
+  <div *ngIf="isLoading" style="text-align:center; margin-top:20px;">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+
+  <ion-card *ngIf="user">
+    <ion-card-header>
+      <ion-card-title>
+        {{ user.name }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content style="text-align:center;">
+      <p><strong>Email:</strong> {{ user.email }}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

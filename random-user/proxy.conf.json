@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://randomuser.me/api",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "logLevel": "debug"
+  }
+}
